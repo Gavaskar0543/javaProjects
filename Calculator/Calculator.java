@@ -37,6 +37,17 @@ Calculator(){
     setResizable(false);
     GridLayout grid = new GridLayout(5,5);
     setLayout(grid);
+    /*flow */
+    FlowLayout f1 = new FlowLayout(FlowLayout.CENTER);
+    FlowLayout f2 = new FlowLayout(FlowLayout.CENTER,1,1);
+    for(int i = 0; i<5;i++){
+        row[i] = new JPanel();
+    }
+    row[0].setLayout(f1);
+
+    for(int i = 1; i<5;i++){
+        row[i].setLayout(f2);
+    }
 }
 
 }
