@@ -45,4 +45,20 @@ public class Graph {
         
 
     }
+    public void dfs(int v){
+        int V = adjList.size();
+        boolean visited[] = new boolean[V];
+        dfsHelp(v,visited);
+    }
+    private void dfsHelp(int v, boolean[] visited) {
+        visited[v] = true;
+        System.out.println("vetex visited:"+""+v);
+        for(int i = 0; i<adjList.get(v).size();i++){
+            int av = adjList.get(v).get(i);
+            if(!visited[av]){
+                dfsHelp(av, visited);
+            }
+        }
+
+    }
 }
