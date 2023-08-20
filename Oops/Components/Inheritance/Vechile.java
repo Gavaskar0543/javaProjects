@@ -5,7 +5,16 @@ package Oops.Components.Inheritance;
  */
 public class Vechile {
 int maxSpeed;
-String color;
+private String color;
+//setter
+public void setColor( String color){
+    this.color = color;
+
+}
+//getter
+public String getcolor(){
+return this.color;
+}
 public void printIt(){
     System.out.println("vechile"+" "+"color"+":"+color+" "+"maxSpeed"+":"+" "+maxSpeed);
 }

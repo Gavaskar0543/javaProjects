@@ -5,11 +5,12 @@ public class VechileTest {
         Vechile v = new Vechile();
         v.printIt();
         Car c = new Car();
-        c.color = "red";
+        c.setColor("red");
         c.maxSpeed = 700;
-        c.printIt();
+        c.numOfDoors=4;
+        c.print();
         Bicycle b = new Bicycle();
-        b.color = "blue";
+        b.setColor("blue");
         b.maxSpeed = 12;
         b.printIt();
     }
