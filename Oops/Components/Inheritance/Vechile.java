@@ -5,6 +5,9 @@ package Oops.Components.Inheritance;
  */
 public class Vechile {
 int maxSpeed;
+Vechile(int maxSpeed){
+this.maxSpeed = maxSpeed;
+}
 private String color;
 //setter
 public void setColor( String color){
