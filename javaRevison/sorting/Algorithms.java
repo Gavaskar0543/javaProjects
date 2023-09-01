@@ -6,9 +6,41 @@ public class Algorithms {
     public static void main(String[] args) {
         int arr[] = {3,1,1,2};
      
-      int result[] =  countSort(arr);
-      System.out.println(Arrays.toString(result));
+      radixSort(arr);
+      System.out.print(Arrays.toString(arr));
         
+    }
+    public static void countSortRadix(int ar[],int n,int pos){
+        int count[] = new int [10];
+        //count frequency
+        for(int i = 0;i<n;i++){
+            count[(ar[i]/pos) % 10]++;
+        }
+        //positioning
+        for(int i = 1;i<n;i++){
+            count[i] +=count[i-1];
+        }
+
+        int output[] = new int[n];
+        for(int i = n-1; i>= 0;i--){
+            output[--count[(ar[i]/pos) % 10]] = ar[i];
+        }
+        for(int i = 0;i<n;i++){
+            ar[i] = output[i];
+        }
+        System.out.print(Arrays.toString(ar));
+    }
+    public static void radixSort(int []arr){
+        //max from the array.
+        int max = arr[0];
+        for(int i =0;i<arr.length;i++){
+            max = Math.max(max,arr[i]);
+        }
+
+        //radix sort by position of the digit
+        for(int pos = 1; max/pos > 0;pos= pos*10){
+            countSortRadix(arr,arr.length,pos);
+        }
     }
 
    private static int[] countSort(int[] arr) {
@@ -42,7 +74,6 @@ public class Algorithms {
 
         for(int i = 0; i<arr.length;i++){
             arr[i] = output[i];
-
         }
 
 
