@@ -4,14 +4,55 @@ import java.lang.reflect.Array;
 import java.util.*;
 public class Algorithms {
     public static void main(String[] args) {
-        int arr[] = {64,34,25,12,22,11,90};
+        int arr[] = {3,1,1,2};
      
-      int result[] =  quickSort(arr,0,arr.length-1);
+      int result[] =  countSort(arr);
       System.out.println(Arrays.toString(result));
         
     }
 
-   private static int[] quickSort(int[] arr, int low, int high) {
+   private static int[] countSort(int[] arr) {
+    //time o(max(Ai,N))
+       /*1.max 
+        * 2.count array
+        3.position
+        4.filling
+        5.return;
+        */
+        int max = arr[0];
+        for(int i = 1; i<arr.length;i++){
+            max = Math.max(max, arr[i]);
+        }
+        int count[] = new int [max+1];
+        //counting frequency
+        for(int i = 0; i<arr.length;i++){
+            count[arr[i]]++;
+
+        }
+        //positioning
+        for(int i = 1;i<arr.length;i++){
+            count[i] += count[i-1];
+
+        }
+        //output
+        int output[] = new int [arr.length];
+        for(int i = arr.length-1;i>=0;i--){
+            output[--count[arr[i]]] = arr[i];
+        }
+
+        for(int i = 0; i<arr.length;i++){
+            arr[i] = output[i];
+
+        }
+
+
+        return arr;
+
+    }
+
+private static int[] quickSort(int[] arr, int low, int high) {
+
+    //o(nlogn)
     if(low < high){
         int pivotIndex = partiction(arr,low,high);
 
