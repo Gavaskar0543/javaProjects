@@ -4,10 +4,11 @@ import java.lang.reflect.Array;
 import java.util.*;
 public class Algorithms {
     public static void main(String[] args) {
-        int arr[] = {3,1,1,2};
+        int arr[] = {300,10000,100,2};
      
       radixSort(arr);
       System.out.print(Arrays.toString(arr));
+     
         
     }
     public static void countSortRadix(int ar[],int n,int pos){
@@ -28,7 +29,7 @@ public class Algorithms {
         for(int i = 0;i<n;i++){
             ar[i] = output[i];
         }
-        System.out.print(Arrays.toString(ar));
+        
     }
     public static void radixSort(int []arr){
         //max from the array.
