@@ -42,8 +42,31 @@ public class Tree {
     }
 
    private static void levelOrder(Tree node) {
-    Queue<Integer>queue = new LinkedList<>();
-    
+    Queue<Tree>q = new LinkedList<>();
+    q.add(node);
+    q.add(null);
+    while(!q.isEmpty()){
+      Tree currNode = q.poll();
+      if(currNode == null){
+        System.out.println();
+        if(q.isEmpty()){
+         break;
+        }
+        else{
+           q.add(null);
+        }
+      }
+      else{
+        System.out.print(currNode.data+" ");
+        if(currNode.left != null){
+          q.add(currNode.left);
+        }
+        if(currNode.right != null){
+          q.add(currNode.right);
+        }
+      }
+    }
+
     }
 
   private static void postOrder(Tree node) {
