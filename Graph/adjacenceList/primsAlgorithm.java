@@ -32,6 +32,7 @@ public class primsAlgorithm  {
   PriorityQueue<Pair>pq = new PriorityQueue<>();
   boolean visited [] = new boolean[V];
   int mstCost = 0;
+  /* Time complexity E log E because we searching the edge with less weightage*/
   pq.add(new Pair(0,0));
   while(!pq.isEmpty()) {
 	  Pair curr = pq.remove();
