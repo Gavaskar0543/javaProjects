@@ -22,6 +22,28 @@ public class Graph {
 
         }
     }
+    public void printPaths(int src,int des){
+        boolean visited [] = new boolean[arrayList.size()];
+        visited[src] = true;
+        String path = ""+src;
+        printHelper(arrayList,src,des,path,visited);
 
+    }
+    private void printHelper(ArrayList<ArrayList<Integer>> arrayList2, int src, int des, String path,
+            boolean[] visited) {
+                if(src == des){
+                    System.out.println(path);
+                    return;
+                }
+                for(int i = 0; i<arrayList2.get(src).size();i++){
+                    int av = arrayList2.get(src).get(i);
+                    if(!visited[av]){
+                        visited[av] = true;
+                        printHelper(arrayList2,av,des,path+av,visited);
+                        visited[av] = false;
+                    }
+                }
+    }
+  
 
 }
