@@ -8,7 +8,23 @@ public class BST{
         Node(int data){
             this.data = data;
         }
+        public static boolean searchInBst(Node root,int val){
+          if(root == null){
+            return false;
+          }
+          //if value is less than root.data then go for left subTree
+          if(root.data > val){
+            return searchInBst(root.left, val);
+          }
+          //if found the match
+        else if(root.data == val){
+            return true;
+          }
 
+          else{
+            return searchInBst(root.right, val);
+          }
+        }
         public static Node inserNode(Node root,int val){
             if(root == null){
               //first node
@@ -44,6 +60,7 @@ public class BST{
         root = Node.inserNode(root,arr[i]);
        }
       Node.inOrder(root);
+    System.out.println( Node.searchInBst(root, 7)); 
     }
     
 }
