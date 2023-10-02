@@ -37,11 +37,46 @@ public class Tree {
        // preorder(node);/* root => left =>right */
       //  inorder(node); /*left => root => right */
      // postOrder(node);/*left =>right=>root */
-     levelOrder(node);
+     //levelOrder(node);
+   int x = height(node);
+   //sumOfBT(node); 
+  // countNodes(node);
+   System.out.println(x);
     
     }
 
-   private static void levelOrder(Tree node) {
+
+      private static int height(Tree node) {
+     if(node == null){
+      return 0;
+     }
+     int leftSubTree = height(node.left);
+     int rightSubTree = height(node.right);
+     int myHeight = Math.max(leftSubTree,rightSubTree) + 1;
+     return myHeight;
+    }
+
+   private static int sumOfBT(Tree node) {
+     if(node == null){
+      return 0;
+     }
+     int leftSubTree = sumOfBT(node.left);
+     int rightSubTree = sumOfBT(node.right);
+
+     return leftSubTree+rightSubTree+node.data;
+    }
+
+  private static int countNodes(Tree node) {
+    if(node == null){
+      return 0;
+    }
+    int leftSubTree = countNodes(node.left);
+    int rightSubTree = countNodes(node.right);
+    return leftSubTree+rightSubTree+1;
+     
+    }
+
+  private static void levelOrder(Tree node) {
     Queue<Tree>q = new LinkedList<>();
     q.add(node);
     q.add(null);

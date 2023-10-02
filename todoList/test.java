@@ -1,5 +1,4 @@
 package todoList;
-
 import java.util.Scanner;
 
 public class test {
