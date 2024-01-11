@@ -74,23 +74,14 @@ public static int minHelper(Node root, int min) {
     System.out.print(root.data+"-"+"");
     inOrder(root.right);
    }
+    public static Node inOrderSuccessor(Node root){
+      while(root.left != null){
+        root = root.left;
+      }
+      return root;
     }
-     public static void main(String args[]){
-       int arr[] = {5,3,4,1};
-  
-       Node root = null;
-       for(int i = 0;i<arr.length;i++){
-        root = Node.inserNode(root,arr[i]);
-       }
-     // Node.inOrder(root);
-   // System.out.println( Node.searchInBst(root, 1)); 
-   //System.out.println(Node.minInBST(root));
-   Node.inOrder(root);
-   System.out.println("After deleteing the node");
-   Node.delete(root,3);
-   Node.inOrder(root);
-    }
-    public static Node delete(Node root, int val){
+
+      public static Node delete(Node root, int val){
       if(root.data > val){
         root.left = delete(root.left,val);
       }
@@ -119,10 +110,23 @@ public static int minHelper(Node root, int min) {
       }
       return root;
     }
-    public static Node inOrderSuccessor(Node root){
-      while(root.left != null){
-        root = root.left;
-      }
-      return root;
+   
+
+
+    }
+     public static void main(String args[]){
+       int arr[] = {1,2,3};
+  
+       Node root = null;
+       for(int i = 0;i<arr.length;i++){
+        root = Node.inserNode(root,arr[i]);
+       }
+     // Node.inOrder(root);
+   // System.out.println( Node.searchInBst(root, 1)); 
+   //System.out.println(Node.minInBST(root));
+   Node.inOrder(root);
+   System.out.println("After deleteing the node");
+   Node.delete(root,3);
+   Node.inOrder(root);
     }
 }
