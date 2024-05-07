@@ -37,11 +37,11 @@ public class Tree {
        // preorder(node);/* root => left =>right */
       //  inorder(node); /*left => root => right */
      // postOrder(node);/*left =>right=>root */
-     //levelOrder(node);
-   int x = height(node);
+     printLevelOrderReverse(node);
+  // int x = height(node);
    //sumOfBT(node); 
   // countNodes(node);
-   System.out.println(x);
+  // System.out.println(x);
     
     }
 
@@ -79,7 +79,7 @@ public class Tree {
   private static void levelOrder(Tree node) {
     Queue<Tree>q = new LinkedList<>();
     q.add(node);
-    q.add(null);
+   q.add(null);
     while(!q.isEmpty()){
       Tree currNode = q.poll();
       if(currNode == null){
@@ -129,5 +129,32 @@ public class Tree {
       System.out.println(node.data);
       preorder(node.left);
       preorder(node.right);
+    }
+    private static void printLevelOrderReverse(Tree node){
+     Queue<Tree>q = new LinkedList<>();
+     q.add(node);
+     q.add(null);
+     while(!q.isEmpty()){
+      Tree currentNode = q.poll();
+      if(currentNode == null){
+        System.out.println();
+      if(q.isEmpty()){
+        break;
+      }
+      else{
+        q.add(null);
+      }
+    }
+    else{
+      System.out.print(currentNode.data);
+      if(currentNode.left != null){
+        q.add(currentNode.left);
+      }
+      if(currentNode.right != null){
+        q.add(currentNode.right);
+      }
+     }
+    }
+     
     }
 }
