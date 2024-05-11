@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "practice",
+            "request": "launch",
+            "mainClass": "practice",
+            "projectName": "javaProjects"
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-DemoApplication<com.chyaTech-demo>",
             "request": "launch",
             "cwd": "${workspaceFolder}",

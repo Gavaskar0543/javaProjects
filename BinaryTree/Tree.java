@@ -37,11 +37,13 @@ public class Tree {
        // preorder(node);/* root => left =>right */
       //  inorder(node); /*left => root => right */
      // postOrder(node);/*left =>right=>root */
-     printLevelOrderReverse(node);
+    // printLevelOrderReverse(node);
   // int x = height(node);
    //sumOfBT(node); 
   // countNodes(node);
   // System.out.println(x);
+  ArrayList<Integer>list = new ArrayList<>();
+  printPathRootToleaf(node,list);
     
     }
 
@@ -157,4 +159,24 @@ public class Tree {
     }
      
     }
+    private static void printPathRootToleaf(Tree root,ArrayList<Integer>list){
+      if(root == null){
+       return;
+      }
+      list.add(root.data);
+      if(root.left == null && root.right == null){
+       
+        System.out.println(list);
+      }
+      else{
+        printPathRootToleaf(root.left, list);
+        printPathRootToleaf(root.right,list);
+      }
+      list.remove(list.size()-1);
+    }
+  
 }
+
+
+
+  
